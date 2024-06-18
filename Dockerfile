@@ -23,8 +23,8 @@ ENV         IMAGE_VERSION="${IMAGE_VERSION}" \
             UDP_SOCKET_PORT="7778" \
             RCON_PORT="27020" \
             SERVER_LIST_PORT="27015" \
-            STEAM_HOME="/home/${USER}" \
-            STEAM_USER="${USER}" \
+            STEAM_HOME="/home/steam" \
+            STEAM_USER="steam" \
             STEAM_LOGIN="anonymous"
 
 ENV         ARK_TOOLS_DIR="${ARK_SERVER_VOLUME}/arkmanager"
@@ -42,10 +42,10 @@ RUN         set -x && \
             && \
             curl -L "https://github.com/arkmanager/ark-server-tools/archive/v${ARK_TOOLS_VERSION}.tar.gz" \
                 | tar -xvzf - -C /tmp/ && \
-            bash -c "cd /tmp/ark-server-tools-${ARK_TOOLS_VERSION}/tools && bash -x install.sh ${USER}" && \
+            bash -c "cd /tmp/ark-server-tools-${ARK_TOOLS_VERSION}/tools && bash -x install.sh steam" && \
             ln -s /usr/local/bin/arkmanager /usr/bin/arkmanager && \
-            install -d -o ${USER} ${ARK_SERVER_VOLUME} && \
-            su ${USER} -c "bash -x ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
+            install -d -o steam ${ARK_SERVER_VOLUME} && \
+            su steam -c "bash -x ${STEAMCMDDIR}/steamcmd.sh +login anonymous +quit" && \
             apt-get -qq autoclean && apt-get -qq autoremove && apt-get -qq clean && \
             rm -rf /tmp/* /var/cache/*
 
