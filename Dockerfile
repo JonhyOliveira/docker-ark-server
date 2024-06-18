@@ -1,6 +1,6 @@
 FROM        cm2network/steamcmd:root
 
-LABEL       MAINTAINER="https://github.com/Hermsi1337/"
+LABEL       MAINTAINER="joaofvmo2001@gmail.com"
 
 ARG         ARK_TOOLS_VERSION="1.6.61a"
 ARG         IMAGE_VERSION="dev"

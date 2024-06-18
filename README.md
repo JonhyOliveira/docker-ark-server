@@ -1,7 +1,8 @@
-![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline-status/hermsi1337/docker-ark-server?branch=master&style=flat-square)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hermsi/ark-server?label=hub.docker.com%20pulls&style=flat-square)](https://hub.docker.com/r/hermsi/ark-server)
-[![Docker Repository on Quay](https://img.shields.io/badge/Quay.io-Repository-blue)](https://quay.io/repository/hermsi1337/ark-server)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T85UYT37P3YNJ&source=url)
+Preface: this repository is a fork and will only include small modifications. Credit goes to Hermsi1337 for setting up the Dockerfile.
+
+I'll try to leave this README as close to original as possible.
+
+---
 
 # Dockerize ARK managed with [ARK-Server-Tools](https://github.com/arkmanager/ark-server-tools)
 
