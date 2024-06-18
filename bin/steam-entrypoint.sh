@@ -112,4 +112,22 @@ fi
 
 may_update
 
-exec "${ARKMANAGER}" run --verbose ${args[@]}
+function terminate()
+{
+	echo "Gracefully terminating in 60 seconds"
+	"${ARKMANAGER}" broadcast "A shutdown has been issued. The server is closing in the next 60 seconds. Get your afairs in order!"
+	sleep 30
+	"${ARKMANAGER}" broadcast "The server is closing in the next 30 seconds. Get inside!"
+	sleep 20
+	"${ARKMANAGER}" broadcast "Yes, the server is really closing in the next 10 seconds. Don't tell me I didn't warn you!!"
+	sleep 10
+	"${ARKMANAGER}" stop --verbose --saveworld
+	exit
+}
+
+set +e
+
+trap terminate INT TERM SIGINT SIGTERM
+
+"${ARKMANAGER}" run --verbose ${args[@]} &
+wait
